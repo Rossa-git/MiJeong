@@ -1,0 +1,294 @@
+.product-detail-section .detail-page{
+    margin-top: 20px;
+    margin-left: 130px;
+    padding-right: 130px;
+    overflow: hidden;
+    border-top: 2px solid #5c0931;
+    }
+    /* 왼쪽 구역 */
+.product-detail-section .left-sector{
+    text-align: center;
+    margin-bottom: 10px;
+    float: left;
+    padding-top: 5%;
+    border-bottom: 0px;
+    text-align: center;
+    width: 50%;
+    height: 423px;
+    display: inline;
+    border-bottom: 5px solid #83335a;
+    }
+    /* 오른쪽 구역 */
+.product-detail-section .right-sector{
+    margin-bottom: 10px;
+    float: right;
+    width: 50%;
+    height: 450px;
+}
+/* 아랫쪽 구역 */
+.product-detail-section .sub-sector{
+    float: left;
+    width: 100%;
+    height: 250px;
+    margin-bottom: 10px;
+}
+/* -------- 상품 메인이미지 구역 ------------- */
+/* 상품정보 박스 */
+.product-detail-section .right-sector > .right-sub {
+    margin-top: 20px;
+    }
+    
+.product-detail-section .main-img{
+    width: 100%;
+    height: 300px;
+    text-align: center;
+    overflow: auto;
+}
+.product-detail-section .imgmain{
+    margin-bottom: 30px;
+    width: 350px;
+    height: auto;
+}
+.product-detail-section .main-img::-webkit-scrollbar-thumb{
+    background-color: white;
+    border-radius: 10px;
+}
+.product-detail-section .main-img::-webkit-scrollbar-track{
+    background-color: white;
+    border-radius: 10px;
+}
+.product-detail-section .main-img::-webkit-scrollbar{
+    width: 10px;
+}
+    /* 상품이미지 박스 */
+.product-detail-section .left-sector > .img-box > .main-img > img {
+    border: 8px inset #5c0931;
+    margin-top: 30px;
+}
+/* 상품 서브 이미지 박스 */
+.product-detail-section .sub-img{
+    margin-top: 10px;
+}
+.product-detail-section .left-sector > .img-box > .sub-img img{
+    height: 50px;
+    line-height: 50px;
+    border: 3px groove #5c0931;
+}
+
+.product-detail-section .item-box{
+    overflow: hidden;
+}
+
+/* ------------- 오른쪽 구역 ------------- */
+/* 상품번호 */
+.product-detail-section .item-num > p {
+    float: left;
+}
+
+/* 찜 아이콘 박스 */
+.product-detail-section .icon {
+    float: left;
+    margin-left: 250px;
+    width: auto;
+}
+/* 찜목록 구역 */
+.product-detail-section .icon button{
+    text-align: center;
+    margin-left: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    background-color: white;
+    border:1px solid #5c0931;
+}
+.product-detail-section .icon-jjim{
+    width: auto;
+    color: #5c0931
+}
+.product-detail-section .artist {height: 80px;}
+/* 작가정보 */
+.product-detail-section .artist > .artist-name{
+    color: #5c0931;
+    font-size: 25px;
+    font-weight:bold;
+}
+.product-detail-section .item-name-box {
+    margin-bottom: 10px;
+}
+/* 상품 제목 */
+.product-detail-section .item-name-box > .item-name{
+    font-weight: bold;
+    font-size: 18px;
+}
+    /* 상품정보 123 */
+.product-detail-section .item-info-sel > li {
+    font-size: 12px;
+}
+/* ---------- 시간 구역 ----------- */
+.product-detail-section .detail-time{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.product-detail-section .remainig-time > p{
+        font-size: 17;
+        font-weight: bold;
+        color: #5c0931;
+    }   
+.product-detail-section .start-time > p {
+    font-size: 12px;
+    color: #777;
+    font-weight: bold;
+    }
+.product-detail-section .end-time > p {
+    font-size: 12px;
+    color: #777;
+    font-weight: bold;
+    }
+/* ---------- 버튼 구역 ----------- */
+.product-detail-section .right-px{margin-left: 50px;}
+.product-detail-section .start-price{
+    font-size: 10px;
+    color:#999;
+    font-weight: bold;
+}
+.product-detail-section .now-price{
+    font-size: 17px;
+    font-weight: bolder;
+    color: #5c0931;
+}
+/* 입찰 버튼 박스 */
+.product-detail-section .btn-rl{
+    margin-left: 50px;
+    margin-bottom: 20px;
+}
+.product-detail-section .detail-btn > .btn-rl > .detail-left-btn{
+    border-radius: 0%;
+    background-color: #5c0931;
+    color: white;
+    width: 120px;
+    /* width: 150px;   */
+}
+.product-detail-section .detail-right-btn{
+    color: white;
+    width: 120px;
+    border-radius: 0%;
+    background-color: hsl(331, 25%, 59%);
+}
+.product-detail-section .question-sector{
+    margin-top: 10px;
+}
+.product-detail-section .question-btn{
+    float: right;
+    background-color: #5c0931;
+    color: white;
+    width: 80px;
+    margin-left: 10px;
+}
+.product-detail-section .question-label{
+    float: right;
+    color: #777;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 7px;
+    margin-left: 15px;
+    display: inline;
+}
+/* 작품설명칸 */
+.product-detail-section .sub-sector > .detail-item-info {
+    width: 100%;
+    height: 250px;
+    /* border: 1px solid #5c0931; */
+    padding: 20px;
+}
+.product-detail-section .item-ex{
+    bottom: 230px;
+    text-align: left;
+    font-size: 17px;
+    font-weight: bold;
+    color: #5c0931;
+}
+.product-detail-section .item-info-content-box{
+    overflow: auto;
+    width: 100%;
+    height: 170px;
+    border-top: 2px solid #5c0931;
+}
+.product-detail-section .item-info-content-box >p{
+    margin-top: 10px;
+}
+.product-detail-section .item-info-content-box::-webkit-scrollbar-thumb{
+    background-color: white;
+    border-radius: 10px;
+}
+.product-detail-section .item-info-content-box::-webkit-scrollbar-track{
+    background-color: white;
+    border-radius: 10px;
+}
+.product-detail-section .item-info-content-box::-webkit-scrollbar{
+    width: 10px;
+}
+/* 문의내역 구역----------------- */
+.product-detail-section .question-box{
+    margin-top: 10px;
+}
+.product-detail-section .question-data{
+    padding-top: 15px;
+    border-top: 2px solid #97979767;
+    border-bottom: 2px solid #97979767;
+    width: 100%;
+    overflow: hidden;
+}
+.product-detail-section .quest-date{
+    text-align: center;
+    margin-right: 30px;
+    float: left;
+}
+.product-detail-section .quest-time{
+    font-size: 12px;
+}
+.product-detail-section .quest-title{
+    margin-left: 30px;
+    display: inline;
+    color: #5c0931;
+    font-size: 15px;
+    font-weight: bold;
+    height: 30px;
+}
+
+.product-detail-section .quest-title li{
+    padding-top: 8px;
+}
+.product-detail-section .title-box{
+    float: left;
+
+}
+.product-detail-section .quest-title li{
+    float: left;
+}
+.product-detail-section .ready p {
+    padding-top: 8px;
+    font-weight: bold;
+    color: #0a8a26;
+}
+.product-detail-section .ready{
+    float: left;
+}
+.product-detail-section .detail-pop{
+    margin-left: 20px;
+    margin-top: 8px;
+    float: left;
+    width: 100px;
+    text-align: center;
+    color: #5c0931;
+    background-color: white;
+    border: 1.5px solid #5c0931;
+}
+/* 문의 답변 */
+.product-detail-section .detail-content{
+    margin-left: 100px;
+    display: inline-block;
+    width: 700px;
+}
+.product-detail-section .detail-content > p {
+    display: none;
+}

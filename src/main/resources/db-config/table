@@ -1,0 +1,314 @@
+--프로젝트 테이블 생성 SQL문
+
+--회원정보 테이블 생성 SQL
+CREATE TABLE USER_TB(
+    USER_ID VARCHAR2(30) PRIMARY KEY, --회원 아이디
+    USER_PW VARCHAR2(30) NOT NULL, -- 회원 비밀번호
+    USER_NM VARCHAR2(20), --회원의 이름
+    USER_PHONE VARCHAR2(12) NOT NULL, -- 회원 휴대전화
+    USER_EMAIL VARCHAR2(50) NOT NULL, --회원의 이메일주소
+    USER_ZIP_NO NUMBER(6), --회원의 우편번호
+    USER_BASIC_ADDR VARCHAR2(200), --회원의 기본주소
+    USER_DETAIL_ADDR VARCHAR2(300), --회원의 상세주소
+    USER_REG_DT DATE DEFAULT SYSDATE --가입일
+);
+--------------------------------------------------------------------------------
+--상품정보 테이블생성 SQL
+CREATE TABLE PRODUCT_TB(
+    PRODUCT_NO VARCHAR2(12) PRIMARY KEY, --상품번호
+    USER_ID varchar2(30), --판매자이름
+    PRODUCT_NM VARCHAR2(50) NOT NULL, --상품명
+    CATEGORY_NO VARCHAR2(8), -- 카테고리번호
+    ARTIST_NM VARCHAR2(20), --작가이름
+    ARTIST_ADDR VARCHAR2(200), --작가주소
+    ARTIST_PHONE NUMBER(12), --작가핸드폰번호
+    ARTIST_EMAIL VARCHAR2(50), --작가이메일
+    PRODUCT_CONTENT VARCHAR2(2000), --작품설명
+    PRODUCT_START_PRICE NUMBER(20), --입찰시작가격
+    PRODUCT_BUY_NOW_PRICE NUMBER(20), --즉시구매가격
+    PRODUCT_BID_START_DT DATE, --경매시작일
+    PRODUCT_BID_END_DT DATE, --경매 종료일
+    PRODUCT_REG_DT DATE DEFAULT SYSDATE --등록일자
+);
+--시퀀스
+CREATE SEQUENCE PRODUCT_SEQ
+START WITH 1
+MAXVALUE 99999
+MINVALUE 1
+CYCLE
+NOCACHE
+NOORDER
+;
+
+
+
+CREATE OR REPLACE PROCEDURE PRODUCT_SEQ_RESET(PRODUCT_SEQ IN VARCHAR2)
+IS
+    L_VAL NUMBER;
+BEGIN
+ 
+    EXECUTE IMMEDIATE 'SELECT '|| PRODUCT_SEQ||'.NEXTVAL FROM DUAL' INTO L_VAL;
+    EXECUTE IMMEDIATE 'ALTER SEQUENCE '|| PRODUCT_SEQ ||' INCREMENT BY -'|| L_VAL ||' MINVALUE 0';
+    EXECUTE IMMEDIATE 'SELECT '|| PRODUCT_SEQ ||'.NEXTVAL FROM DUAL' INTO L_VAL;
+    EXECUTE IMMEDIATE 'ALTER SEQUENCE '|| PRODUCT_SEQ ||' INCREMENT BY 1 MINVALUE 0';
+ 
+END;
+/
+
+DECLARE
+    X NUMBER;
+BEGIN
+        SYS.DBMS_JOB.SUBMIT
+        (
+              job => X
+            , what =>
+                'BEGIN
+                        PRODUCT_SEQ_RESET(''PRODUCT_SEQ'');
+                 END;'
+            , next_date => to_date('07-08-2021 00:00:00', 'mm/dd/yyyy hh24:mi:ss')
+            , interval => 'TRUNC(SYSDATE+1)'
+            , no_parse => FALSE
+        );
+        SYS.DBMS_OUTPUT.PUT_LINE('Job Number is : '|| to_char(X));
+END;
+/
+
+CREATE OR REPLACE FUNCTION GET_TODAY_PRODUCT_SEQ
+RETURN VARCHAR2
+AS
+     v_returnValue VARCHAR2(50);
+BEGIN
+ 
+    BEGIN
+ 
+        select 'P' || TO_CHAR(SYSDATE, 'YYMMDD') || LPAD(PRODUCT_SEQ.nextval, 5, 0)
+          into v_returnValue
+          from dual;
+ 
+    EXCEPTION
+      WHEN NO_DATA_FOUND THEN
+        v_returnValue := ' ';
+      WHEN OTHERS THEN
+        v_returnValue := ' ';
+    END;
+ 
+    RETURN v_returnValue;
+END;
+/
+
+select GET_TODAY_PRODUCT_SEQ() from DUAL;
+--------------------------------------------------------------------------------
+
+-- 상품 이미지 테이블생성 SQL
+CREATE TABLE PRODUCT_IMG_TB(
+    PRODUCT_NO VARCHAR2(12), --상품번호
+    IMG_NO NUMBER(1), --이미지번호
+    UPLOAD_PATH VARCHAR2(100), --업로드경로
+    FILE_LOCAION VARCHAR2(100), --날짜별 폴더위치
+    FILE_NM VARCHAR2(100), -- 변경된 파일명
+    FILE_REAL_NM VARCHAR2(100), --실제 파일명
+
+    CONSTRAINT PRODUCT_IMG_PK PRIMARY KEY (PRODUCT_NO, IMG_NO)
+);
+--------------------------------------------------------------------------------
+
+-- 상품 문의 테이블 SQL
+CREATE TABLE PRODUCT_QUEST_TB(
+    QUEST_NO VARCHAR2(12) PRIMARY KEY, -- 문의번호
+    PRODUCT_NO VARCHAR2(12), --상품번호
+    USER_ID VARCHAR2(30), -- 문의한 유저 아이디
+    QUEST_CONTENT VARCHAR2(1000) NOT NULL, --문의내용
+    QUEST_DT DATE DEFAULT SYSDATE, --문의한날짜
+    QUEST_SECRET_FL CHAR(1) DEFAULT 'N' CONSTRAINT CK_SECRET_FL CHECK (QUEST_SECRET_FL IN ('Y','N')) --비밀글여부
+);
+
+-- 시퀀스
+CREATE SEQUENCE PRODUCT_QUEST_SEQ
+START WITH 1
+MAXVALUE 99999
+MINVALUE 1
+CYCLE
+NOCACHE
+NOORDER
+;
+
+
+
+CREATE OR REPLACE PROCEDURE PRODUCT_QUEST_SEQ_RESET(PRODUCT_QUEST_SEQ IN VARCHAR2)
+IS
+    L_VAL NUMBER;
+BEGIN
+ 
+    EXECUTE IMMEDIATE 'SELECT '|| PRODUCT_QUEST_SEQ||'.NEXTVAL FROM DUAL' INTO L_VAL;
+    EXECUTE IMMEDIATE 'ALTER SEQUENCE '|| PRODUCT_QUEST_SEQ ||' INCREMENT BY -'|| L_VAL ||' MINVALUE 0';
+    EXECUTE IMMEDIATE 'SELECT '|| PRODUCT_QUEST_SEQ ||'.NEXTVAL FROM DUAL' INTO L_VAL;
+    EXECUTE IMMEDIATE 'ALTER SEQUENCE '|| PRODUCT_QUEST_SEQ ||' INCREMENT BY 1 MINVALUE 0';
+ 
+END;
+/
+
+DECLARE
+    X NUMBER;
+BEGIN
+        SYS.DBMS_JOB.SUBMIT
+        (
+              job => X
+            , what =>
+                'BEGIN
+                        PRODUCT_QUEST_SEQ_RESET(''PRODUCT_QUEST_SEQ'');
+                 END;'
+            , next_date => to_date('07-08-2021 00:00:00', 'mm/dd/yyyy hh24:mi:ss')
+            , interval => 'TRUNC(SYSDATE+1)'
+            , no_parse => FALSE
+        );
+        SYS.DBMS_OUTPUT.PUT_LINE('Job Number is : '|| to_char(X));
+END;
+/
+
+CREATE OR REPLACE FUNCTION GET_TODAY_PRODUCT_QUEST_SEQ
+RETURN VARCHAR2
+AS
+     v_returnValue VARCHAR2(50);
+BEGIN
+ 
+    BEGIN
+ 
+        select 'Q' || TO_CHAR(SYSDATE, 'YYMMDD') || LPAD(PRODUCT_SEQ.nextval, 5, 0)
+          into v_returnValue
+          from dual;
+ 
+    EXCEPTION
+      WHEN NO_DATA_FOUND THEN
+        v_returnValue := ' ';
+      WHEN OTHERS THEN
+        v_returnValue := ' ';
+    END;
+ 
+    RETURN v_returnValue;
+END;
+/
+
+select GET_TODAY_PRODUCT_QUEST_SEQ() from DUAL;
+--------------------------------------------------------------------------------
+
+--상품문의 답변 테이블 SQL
+CREATE TABLE PRODUCT_REPLY_TB (
+   QUEST_NO VARCHAR2(12) PRIMARY KEY,
+   REPLY_CONTENT VARCHAR2(1000) NOT NULL, --답변내용
+   REPLY_DT DATE DEFAULT SYSDATE --답변한 날짜.
+);
+
+--------------------------------------------------------------------------------
+
+-- 상품에 들어갈 카테고리 테이블 SQL
+CREATE TABLE CATEGORY_TB(
+    CATEGORY_NO VARCHAR2(8) PRIMARY KEY,
+    L_CATEGORY_NM VARCHAR2(20),
+    M_CATEGORY_NM VARCHAR2(20),
+    S_CATEGORY_NM VARCHAR2(20)
+);
+--------------------------------------------------------------------------------
+
+--찜목록 테이블 SQL
+CREATE TABLE WISHLIST_TB (
+    USER_ID VARCHAR2(30) NOT NULL,
+    PRODUCT_NO VARCHAR2(30) NOT NULL,
+    
+    CONSTRAINT WISHLIST_TB_PK PRIMARY KEY (USER_ID, PRODUCT_NO)
+);
+--------------------------------------------------------------------------------
+
+--입찰 테이블 SQL
+CREATE TABLE BID_HISTORY_TB(
+    BID_NO VARCHAR2(18) PRIMARY KEY, --입찰번호
+    BID_PRICE NUMBER(20) NOT NULL, --입찰가격
+    BID_DT DATE DEFAULT SYSDATE, --입찰날짜
+    USER_ID VARCHAR2(30) NOT NULL,
+    PRODUCT_NO VARCHAR2(30) NOT NULL
+);
+
+--------------------------------------------------------------------------------
+
+--경매기록 , 경매상태 
+CREATE TABLE AUCTION_SUMMARY(
+    PRODUCT_NO VARCHAR2(12) PRIMARY KEY, --상태를 나타낼 상품번호
+    BID_NO VARCHAR2(18), --입찰 번호
+    AUCTION_ST VARCHAR2(10) NOT NULL --상태
+);
+
+--------------------------------------------------------------------------------
+
+--알림
+CREATE TABLE NOTICE_TB(
+    NOTICE_NO VARCHAR2(12) PRIMARY KEY,
+    USER_ID VARCHAR2(30),
+    NOTICE_CONTENT VARCHAR2(100),
+    NOTICE_DT DATE DEFAULT SYSDATE
+);
+
+--시퀀스
+CREATE SEQUENCE NOTICE_SEQ
+START WITH 1
+MAXVALUE 99999
+MINVALUE 1
+CYCLE
+NOCACHE
+NOORDER
+;
+
+
+CREATE OR REPLACE PROCEDURE NOTICE_SEQ_RESET(NOTICE_SEQ IN VARCHAR2)
+IS
+    L_VAL NUMBER;
+BEGIN
+ 
+    EXECUTE IMMEDIATE 'SELECT '|| NOTICE_SEQ||'.NEXTVAL FROM DUAL' INTO L_VAL;
+    EXECUTE IMMEDIATE 'ALTER SEQUENCE '|| NOTICE_SEQ ||' INCREMENT BY -'|| L_VAL ||' MINVALUE 0';
+    EXECUTE IMMEDIATE 'SELECT '|| NOTICE_SEQ ||'.NEXTVAL FROM DUAL' INTO L_VAL;
+    EXECUTE IMMEDIATE 'ALTER SEQUENCE '|| NOTICE_SEQ ||' INCREMENT BY 1 MINVALUE 0';
+ 
+END;
+/
+
+DECLARE
+    X NUMBER;
+BEGIN
+        SYS.DBMS_JOB.SUBMIT
+        (
+              job => X
+            , what =>
+                'BEGIN
+                        NOTICE_SEQ_RESET(''NOTICE_SEQ'');
+                 END;'
+            , next_date => to_date('07-08-2021 00:00:00', 'mm/dd/yyyy hh24:mi:ss')
+            , interval => 'TRUNC(SYSDATE+1)'
+            , no_parse => FALSE
+        );
+        SYS.DBMS_OUTPUT.PUT_LINE('Job Number is : '|| to_char(X));
+END;
+/
+
+CREATE OR REPLACE FUNCTION GET_TODAY_NOTICE_SEQ
+RETURN VARCHAR2
+AS
+     v_returnValue VARCHAR2(50);
+BEGIN
+ 
+    BEGIN
+ 
+        select 'N' || TO_CHAR(SYSDATE, 'YYMMDD') || LPAD(NOTICE_SEQ.nextval, 5, 0)
+          into v_returnValue
+          from dual;
+ 
+    EXCEPTION
+      WHEN NO_DATA_FOUND THEN
+        v_returnValue := ' ';
+      WHEN OTHERS THEN
+        v_returnValue := ' ';
+    END;
+ 
+    RETURN v_returnValue;
+END;
+/
+
+select GET_TODAY_NOTICE_SEQ() from DUAL;

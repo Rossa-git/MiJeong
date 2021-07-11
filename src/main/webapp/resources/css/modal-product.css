@@ -1,0 +1,185 @@
+/* ---------- 상품 관련 모달 스타일은 여기에 ---------- */
+
+/* 문의하기 모달 시작*/
+.modal-quest .modal-quest-content {
+    border-radius: 0px;
+    padding: 10px;
+    height: 200px
+}
+
+.modal-quest .modal-quest-content .modal-quest-header {
+    padding: 0px 32px;
+    border-bottom: 0px;
+    color: #5c0931;
+    font-weight: 700;
+}
+
+.modal-quest .modal-quest-body {
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-quest .modal-quest-body .quest-content-textarea {
+    border-radius: 0;
+    height: 100px;
+    resize: none;
+}
+
+.modal-quest .modal-quest-body .quest-content-textarea:focus {
+    outline: 0;
+    border-color: #5c0931;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.modal-quest .modal-quest-body .quest-btn {
+    background-color: #5c0931;
+    color: #fff;
+    float: right;   
+    margin-top: 10px;
+}
+/* 문의하기 모달 끝*/
+
+
+/* 입찰하기 모달 시작 */
+.modal-bid .modal-bidding {
+    border-radius: 0px;
+    padding: 10px;
+}
+
+.modal-bid .modal-bidding-header {
+    padding: 0px 32px;
+    border-bottom: 0px;
+}
+
+.modal-bid #deadline {
+    color: #5c0931;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.modal-bid .modal-bidding-body .bidding-history {
+    overflow-y: auto;
+    width: 550px;
+    height: 96px;
+    margin: 0 auto;
+}
+
+    /* 입찰내역 스크롤바 시작*/
+.modal-bid .modal-bidding-body .bidding-history::-webkit-scrollbar {
+    width: 5px;
+}
+.modal-bid .modal-bidding-body .bidding-history::-webkit-scrollbar-thumb {
+    background-color: #5c0931;
+    border-radius: 10px;
+}
+.modal-bid .modal-bidding-body .bidding-history::-webkit-scrollbar-button { 
+    display: none;
+}
+    /* 입찰내역 스크롤바 끝*/
+
+    /* 입찰내역 테이블 시작*/
+.modal-bid .bidding-history table {
+    width: 100%;
+}
+
+.modal-bid .bidding-history table td {
+    padding: 2px 10px;
+}
+
+.modal-bid .bidding-history table .history-id {
+    width: 25%
+}
+.modal-bid .bidding-history table .history-date {
+    width: 35%;
+    text-align: center;
+}
+.modal-bid .bidding-history table .history-highprice {
+    width: 20%;
+    text-align: center;
+}
+.modal-bid .bidding-history table .history-price {
+    width: 20%;
+    text-align: right;
+}
+.modal-bid .bidding-history table .high {
+    color: #ffffff;
+    background-color: #5c0931;
+}
+/* 입찰내역 테이블 끝*/
+
+.modal-bid .bidding-history-wrap .bidding-state-wrap {
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.modal-bid .bidding-state-wrap ul li {
+    margin: 5px 0;
+}
+
+.modal-bid .bidding-state-wrap .price-state {
+    float: left;
+}
+
+.modal-bid .bidding-state-wrap .fee-state {
+    float: right;
+}
+
+.modal-bid .fee-state ul li a {
+    text-decoration: none;
+    color: #5c0931;
+    font-weight: 700;
+}
+
+    /* 툴팁메세지 시작 */
+.modal-bid .fee-state-tooltip + .tooltip > .tooltip-inner {
+    background-color: #eeeeee; 
+    color: #000000; 
+    padding: 5px;
+    
+    width: 120px;
+    margin-left: -60px;
+
+    box-shadow: 3px 3px 3px #aaa;
+
+    position: fixed;
+    z-index: 10;
+  }
+.modal-bid .fee-state-tooltip + .tooltip.bottom > .tooltip-arrow {
+    border-bottom: 5px solid #eeeeee;
+}
+
+.modal-bid .tooltip-message .tooltip-title {
+    color: #5c0931;
+    font-weight: 700;
+}
+    /* 툴팁메세지 끝*/
+
+    /* 입찰 금액 쓰는 칸 */
+.modal-bid .bidding-form .bid-line {
+    padding: 20px;
+}
+
+.modal-bid .bid-line .bid-price {
+    width: 100px;
+    padding: 5px;
+    text-align: center;
+}
+
+.modal-bid .bid-line .bid-price::-webkit-outer-spin-button,
+.modal-bid .bid-line .bid-price::-webkit-inner-spin-button {
+
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+    /* 입찰하기 버튼*/
+.modal-bid .bidding-form .btn-modal-bid {
+    background-color: #5c0931;
+    color: #ffffff;
+    border-radius: 0;
+
+    font-weight: 600;
+}
+/* 입찰하기 모달 끝 */

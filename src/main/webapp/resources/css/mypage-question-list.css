@@ -1,0 +1,152 @@
+/* 전체박스 */
+.mypage-question-list-section .question-box{
+    overflow: hidden;
+}
+/* 왼쪽 구역----------------------------- */
+.mypage-question-list-section .left-box{
+    width: 15%;
+    padding-left: 5%;
+    float: left;
+}
+.mypage-question-list-section .quest-info p a{
+    margin: 20px 0px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #5c0931;
+    text-decoration: none;
+}
+.mypage-question-list-section .mypage p a, .myinfo p a, .buyinfo p a{
+    margin: 20px 0px;
+    font-size: 17px;
+    font-weight: bold;
+    color: rgb(201, 160, 179);
+    text-decoration: none;
+}
+.mypage-question-list-section .left-box div p a:hover{
+    color: #5c0931;
+}
+    
+/* 중간 구역--------------------------- */
+.mypage-question-list-section .middle-box{
+    overflow: hidden;
+    width: 80%;
+    padding-left: 5%;
+    float: left;
+}
+.mypage-question-list-section .quest-box{
+    border-bottom: 2px solid #5c0931;
+    margin-bottom: 20px;
+}
+.mypage-question-list-section .question-mark{
+    border: 1px solid #5c0931;
+    float: left;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: white;
+    background-color: #5c0931;
+}
+.mypage-question-list-section .question-time{
+    color: #777;
+    font-size: 13px;
+    margin-left: 110px;
+    text-align: left;
+    height: 30px;
+    line-height: 30px;
+}
+/* 문의글 내역*/
+.mypage-question-list-section .question-data{
+   overflow: hidden;
+}
+.mypage-question-list-section .quest-date{
+    margin-top: 20px;
+    text-align: center;
+    width: 15%;
+    float: left;
+    height: 120%;
+    line-height: 120%;
+   
+}
+.mypage-question-list-section .quest-time{
+    margin-top: 3px;
+    font-size: 11px;
+}
+.mypage-question-list-section .title-box{
+    width: 65%;
+    margin-left: 0px;
+    float: left;
+   
+}
+/* 문의 제목 */
+.mypage-question-list-section .quest-title{
+    width: 100%;
+    float: left;
+    color: #5c0931;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.mypage-question-list-section .quest-title li{
+    display: inline;
+}
+.mypage-question-list-section .quest-content{
+    width: 95%;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+.mypage-question-list-section .quest-content > p{
+    display: none;
+}
+/* 버튼 */
+.mypage-question-list-section .pop{
+    width: 100px;
+    text-align: center;
+    color: #5c0931;
+    background-color: white;
+    border: 1.5px solid #5c0931;
+}
+.mypage-question-list-section .line{
+    margin-top: 15px;
+    border-bottom: 2px solid #ebe9e9;
+    margin-bottom: 15px;
+}
+/* 오른쪽 구역 -----------------------*/
+.mypage-question-list-section .right-box{
+    width: 20%;
+    padding-left: 0%;
+    float: right;
+}
+.mypage-question-list-section .at-box{
+    overflow: hidden;
+}
+.mypage-question-list-section .at-img{
+    float: left;
+}
+.mypage-question-list-section .at-info{
+    margin: 10px 0px;
+    float: left;
+}
+.mypage-question-list-section .at-img img{
+    margin: 10px 0px;
+    margin-right: 30px;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border: 3px inset #5c0931;
+}
+.mypage-question-list-section .at-name{
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.mypage-question-list-section .item-title{
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+.mypage-question-list-section .item-skill{
+    font-size: 8px;
+}
+.mypage-question-list-section .item-size{
+    font-size: 8px;
+}
