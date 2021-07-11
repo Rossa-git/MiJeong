@@ -5,7 +5,19 @@
   
   <!-- 마이바티스 설정파일 type에 명시된 클래스를 함축이름으로 사용합니다. -->
   <configuration>
+  	
+	<settings>
+		<!-- 카멜표기 <-> 스네이크표기 -->
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
+	
   	<typeAliases>
-
+  		<!-- 테스트용 VO 앨리어스 -->
+		<typeAlias type="com.mijeong.command.TestVO" alias="TestVO"/>
+		<typeAlias type="com.mijeong.command.BiddingVO" alias="BiddingVO"/>
+		<typeAlias type="com.mijeong.command.ProductImgVO" alias="ProductImgVO"/>
+		<typeAlias type="com.mijeong.command.ProductVO" alias="ProductVO"/>
+		<typeAlias type="com.mijeong.command.QuestionVO" alias="QuestionVO"/>
+		<typeAlias type="com.mijeong.command.UserVO" alias="UserVO"/>
   	</typeAliases>
   </configuration>

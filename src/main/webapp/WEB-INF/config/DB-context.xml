@@ -30,10 +30,8 @@
 	<!-- namespace체크 , sqlSessionFactoryBean객체를 사용, scan명령 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
-		<!-- xml 매퍼 위치 지정 -->
-		<!-- 
+		<!-- xml 매퍼 위치 지정 --> 
 		<property name="mapperLocations" value="classpath:/sqlmap/*.xml"/>
-		 -->
 		 <!-- 마이바티스 xml설정파일 -->
 		<property name="configLocation" value="classpath:/mybatis-config/mybatis-config.xml"/>
 	</bean>
