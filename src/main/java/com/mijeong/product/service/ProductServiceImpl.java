@@ -23,6 +23,11 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
+	public ProductImgVO getProductImg(String productNo) {
+		return null;
+	}
+
+	@Override
 	public String getProductNo() {
 		return null;
 	}
@@ -61,5 +66,6 @@ public class ProductServiceImpl implements ProductService {
 	public int cancleProduct(String productNo, String UserId) {
 		return 0;
 	}
+
 
 }

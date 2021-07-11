@@ -13,6 +13,7 @@ import com.mijeong.util.Criteria;
 public interface ProductService {
 	public ArrayList<ProductVO> getProductList(Criteria cri); //상품 목록
 	public ProductVO getProductDetail(String productNo); //상품 조회
+	public ProductImgVO getProductImg(String productNo); //상품의 이미지 조회
 	
 	public String getProductNo(); //상품 등록시 발급받을 상품번호
 	public int registProduct(ProductVO vo); //상품등록
