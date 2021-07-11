@@ -233,7 +233,7 @@ CREATE TABLE BID_HISTORY_TB(
 CREATE TABLE AUCTION_SUMMARY(
     PRODUCT_NO VARCHAR2(12) PRIMARY KEY, --상태를 나타낼 상품번호
     BID_NO VARCHAR2(18), --입찰 번호
-    AUCTION_ST VARCHAR2(10) NOT NULL --상태
+    AUCTION_ST VARCHAR2(10) NOT NULL CONSTRAINT CK_AUCTION_ST CHECK (AUCTION_ST IN ('대기','진행','낙찰','유찰')) --상태
 );
 
 --------------------------------------------------------------------------------
