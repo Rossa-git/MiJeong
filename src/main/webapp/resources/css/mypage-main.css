@@ -28,70 +28,158 @@ ul, li, dl, ol {
     list-style: none; /* 순서요소들의 리스트스타일 제거 */
 }
 
-/* 하단 */
-.mypage {
-    position: relative;
+/* 버튼과 input태그의 윤곽변경 */
+.btn {border-radius: 0px;}
+.form-control {border-radius: 0px;}
+section {margin-top: 52px;}
 
-  }
-  
-  .menu {
+/* 마이페이지 */
+.container{width:1200px; max-width:none!important;}
+
+
+/* 상단버튼 */
+.nav > li {
     width: 170px;
-    height: 100%;
+    text-align: center;
+}
+
+.nav-tabs > li > a {
+    margin-right: 2px;
+    line-height: 1.42857;
+    border: 1px solid #b794a5;
+    border-radius: 4px 4px 0px 0px;
+    background-color: #b794a5;
+    color: #fff;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: #fff ;
+    cursor: default;
+    background-color: #5c0931;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221) rgb(221, 221, 221) transparent;
+    border-image: initial;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #5c0931; 
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #5c0931;
+}
+
+/* 홈 박스 */
+.tab-pane {
+    width: 300px;
+    height: 250px;
+    margin: 0px;
+    position: relative;
+}
+
+/* 하단 문의사항 */
+.question {
+    margin-top: 10px;
+    overflow: hidden;
+    width: 1200px;
+}
+
+.question-left, .question-middle, .question-right {
+    float: left;
+}
+
+.question-left {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    padding-top: 70px;
+    padding-right: 25px;
+    border: 1px dashed #b794a5;
+}
+
+.question-middle {
+    width: 450px;
+    height: 200px;
+    padding-top: 50px;
+    padding-left: 10px;
+    border-top: 1px dashed #b794a5;
+    border-bottom: 1px dashed #b794a5;
+    text-align: center;
+
+}
+
+.question-middle > strong {
+    font-size: 20px;
+    color: #5c0931;
+}
+
+.question-middle > p {
+    font-size: 15px;
+}
+
+
+.question-right {
+    width: 450px;
+    height: 200px;
+    border: 1px dashed #b794a5;
+    overflow: hidden;
+}
+
+.question-right-img, .question-right-content {
+    float: left;
+}
+
+.question-right-img > a > img {
+    width: 250px;
+    height: 200px;
+}
+
+.question-right-content {
+    padding: 10px;
+}
+
+/* 사이드 메뉴 */
+.menu {
+    width: 170px;
+    height: 940px;
     border: 1px dashed #b794a5;
     position: absolute;
-    top: 0px;
+    top: 170px;
     right: 50%;
     margin-right: 650px;
 }
-  
-  .menua {
+
+.menua {
     color: #b794a5;
     font-size: large;
     display: block;
     padding-top: 50px;
     text-align: center;
-    
-  }
-  
-  .menua:focus ,.menua:hover {
+    text-decoration: none;
+
+
+}
+
+.menua:focus ,.menua:hover {
     color: #5c0931;
     text-decoration: none;
     font-weight: 1000;
   }
 
-  /* 더보기 버튼 */
-  .tab-pane{
-    position: relative;
-  }
-
-  .btn1 {
-    position: absolute;
-    top: 330px;
-    right: 40px;
-    background-color: #b794a5;
-    color: #fff;
-    border: #b794a5;
-    font-size: small;
-  }
-
-  .btn1:hover, .btn1:focus {
-    border: #5c0931;
-    background-color: #5c0931;
-  }
-
-
-  /* 모달창 */
-  .modal_wrap {
+/* 모달창 */
+.modal_wrap{
     display: none;
-    width: 1500px;
-    height: 800px;
+    width: 1300px;
+    height: 850px;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -356px 0 0 -700px;
-    background: #fff;
-    z-index: 2;
+    margin: -250px 0 0 -250px;
+    background:#fff;
     border: 2px solid #5c0931;
+    z-index: 2;
+    top: 350px;
+    right: 50%;
+    margin-right: -650px;
 }
 .black_bg{
     display: none;
@@ -101,13 +189,12 @@ ul, li, dl, ol {
     height: 100%;
     top:0;
     left: 0;
-    z-index: 1;
+    z-index: 0;
 }
 .modal_close{
     width: 26px;
     height: 26px;
     position: absolute;
-    top: 0px;
     right: 0;
 }
 .modal_close> a{
@@ -118,13 +205,46 @@ ul, li, dl, ol {
     text-indent: -9999px;
 }
 
-.modalproduct1{
-  margin-top: 20px;
-  margin-left: 15px;
-  color: #5c0931;
+.modal_btn {
+    position: absolute;
+    top: 250px;
+    left: 1050px;
+    background-color: #b794a5;
+    color: #fff;
 }
 
-.modalcontent3 {
-  text-align: center;
+.modal_btn:hover {
+    background-color: #5c0931;
 }
+
+.modal_content > h3 {
+    color: #5c0931;
+    margin-left: 20px;
+}
+
+.modal-content-top {
+    width: 1250px;
+    height: 340px;
+    margin-left: 23px;
+}
+
+.modal-content-middle {
+    width: 1250px;
+    height: 340px;
+    margin-left: 23px;
+}
+
+.modal-content-bottom {
+    width: 1250px;
+    height: 40px;
+    margin-left: 23px;
+    text-align: center;
+    
+}
+
+
+
+
+
+
 

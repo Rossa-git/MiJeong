@@ -20,7 +20,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/modal-product">
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/mypage-main">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/mypage-main.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/mypage-question">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/product-detail">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/product-list">
